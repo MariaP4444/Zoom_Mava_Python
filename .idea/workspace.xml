@@ -10,10 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="69d28a0f-df56-4add-a52e-308b68acd066" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/zooController.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/zooController.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Zoo.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Zoo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/animal.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/animal.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/zooView.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/zooView.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,7 +50,7 @@
     "WebServerToolWindowFactoryState": "false",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "last_opened_file_path": "C:/Users/marce/Desktop/Valeria/proyecto/Proyecto-ZOO-Python",
+    "last_opened_file_path": "C:/Users/marce/Desktop/Valeria/crud_example",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
