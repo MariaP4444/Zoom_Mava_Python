@@ -1,4 +1,5 @@
 import model.animal as animalModel
+import view.zooView as zooView
 import model.Zoo as zooModel
 import model.Habitat as habitatModel
 
@@ -11,4 +12,5 @@ class zooController:
         if opcion == 1:
              print("hola")
         if opcion == 2:
-             print("adios")
+             self.view.crear_animal()
+

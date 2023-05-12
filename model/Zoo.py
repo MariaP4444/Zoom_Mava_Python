@@ -30,3 +30,9 @@ class Zoo:
             if habitat.getTempMax() <= temMax and habitat.getTempMin() >= temMin:
                 habitatsAnimal.append(habitat.getNombre())
         return habitatsAnimal
+
+    def devolverPunteroVec(self, nombre):
+        for habitatTemp in self.habitats:
+            if habitatTemp.getNombre() == nombre:
+                return habitatTemp
+        return None

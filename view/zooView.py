@@ -11,6 +11,7 @@ class zooView:
             print("\n~~~~~~~~~~~~~~~~~~~~~ ZOO:", zoo.nombre , "~~~~~~~~~~~~~~~~~~~~~\n")
             print("1. Agregar habitat")
             print("2. Agregar animal")
+            print("2. Agregar animal a un habitat")
             print("3. Lista de habitats y animales")
             print("4. Modificar informacion de animal")
             print("5. Visitar habitat")
@@ -34,20 +35,113 @@ class zooView:
         habitat = habitatModel.(nombre, tempMax, tempMin)
 
     def crear_animal(self, zoo):
-        tempMaxA = input("Temperatura maxima: ")
-        tempMinA = input("Temperatura minima: ")
+        listaDatos = []
+        ##ingresa nombre
+        listaDatos.append(input("Ingrese el nombre del animal:"))
 
-        if zoo.existeHabitatTemp():
+        ##Ingresa especie
+        listaDatos.append(input("Ingrese la especie del animal:"))
 
-            listaHabitatsDisp = listaHabitatsDisponibles(tempMaxA, tempMinA)
-            print("Habitats disponibles para el animal")
-            for elemento in listaHabitatsDisp:
-                print(elemento)
+        ##Ingresa estado de salud
+        listaDatos.append(input("Ingrese el estado de salud del animal:"))
+
+        while True:
+            try:
+                print("Ingrese la edad del animal:")
+                edad = int(input())
+                if edad <= 0 or edad > 100:
+                    raise ValueError("La edad debe ser un entero positivo menor o igual a 100")
+                break
+            except ValueError:
+                print("Se ingresó un argumento inválido. Por favor ingrese un número entero.")
+
+            listaDatos.append(input(edad))
+
+        tempMaxA = input("Temperatura minima: ")
+
+        while True:
+            try:
+                print("Ingrese la edad del animal:")
+                tempMinA = int(input())
+                if edad <= 0 or edad > 100:
+                    raise ValueError("La edad debe ser un entero positivo menor o igual a 100")
+                break
+            except ValueError:
+                print("Se ingresó un argumento inválido. Por favor ingrese un número entero.")
+
+        tempMinA = input("Temperatura mia: ")
+
+        while True:
+            try:
+                print("Ingrese las horas de sueño del animal:")
+                cant_max_dormir = int(input())
+                if cant_max_dormir <= 0:
+                    raise ValueError("La cantidad de horas de sueño debe ser un entero positivo")
+                break
+            except ValueError:
+                print("Se ingresó un argumento inválido. Por favor ingrese un número entero.")
+
+            listaDatos.append(input(cant_max_dormir))
+
+        while True:
+            try:
+                print("Ingrese el número de juguetes que va a tener el animal:")
+                cant_juguetes = int(input())
+                if cant_juguetes <= 0:
+                    raise ValueError("La cantidad de juguetes debe ser un entero positivo")
+                break
+            except ValueError:
+                print("Se ingresó un argumento inválido. Por favor ingrese un número entero.")
+
+        for i in range(cant_juguetes):
+            print(f"Ingrese el nombre del juguete {i + 1}:")
+            juguete_nom = input().lower()
+            juguetes_temp.append(juguete_nom)
+
+        while True:
+            print("\nTipo de dieta disponible:")
+            print("\n - Carnivoro \n - Herbivoro \n - Omnivoro")
+            print("Ingrese el tipo de alimentación del animal:")
+            alimentacion = input().lower()
+            if lista_dietas_disponibles(alimentacion):
+                break
+            else:
+                print("La dieta ingresada no está disponible. Por favor ingrese una dieta válida.")
+
+        nombre_temp = nombre_temp.lower()
+        especie = especie.lower()
+        estado_salud = estado_salud.lower()
+
+        #nuevo_animal = Animal(nombre_temp, especie, estado_salud, id_animal_nuevo, temp_max_a, temp_min_a, 0,
+        #                      cant_max_dormir, False, False, edad, juguetes_temp, alimentacion)
 
 
-           nombre = input("Nombre: ")
-            especie = input("Especie: ")
-            estadoDeSalud = input("Estado de Salud: ")
-            especie = input("Especie: ")
+        # Agrega los alimentos que van por defecto
+        nuevo_animal.elegir_alim(alimentacion)
 
-        else:
+        self.animales[id_animal_nuevo] = nuevo_animal
+        print(f"{nuevo_animal.get_nombre()} fue llevado a su nueva hábitat {self.get_nombre()}")
+
+
+#############
+
+def crear_animal(self, zoo):
+    tempMaxA = input("Temperatura maxima: ")
+    tempMinA = input("Temperatura mia: ")
+
+    if zoo.existeHabitatTemp():
+
+        listaHabitatsDisp = listaHabitatsDisponibles(tempMaxA, tempMinA)
+        print("Habitats disponibles para el animal")
+        for elemento in listaHabitatsDisp:
+            print(elemento)
+        habitat = input("Seleccione un habitat: ")
+        print()
+
+
+nombre = input("Nombre: ")
+especie = input("Especie: ")
+estadoDeSalud = input("Estado de Salud: ")
+especie = input("Especie: ")
+
+else:
