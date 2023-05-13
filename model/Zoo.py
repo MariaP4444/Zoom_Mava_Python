@@ -1,5 +1,4 @@
 
-
 class Zoo:
     def __init__(self):
         self.nombre = "ZooMAVA"
@@ -16,23 +15,18 @@ class Zoo:
                 return True
         return False
 
-    def registrarHabitat(self, nombre, tMin, tMax):
-        if self.habitatRepetido(nombre):
-            print("Este habitat ya existe")
+    def lista_dietas_disponibles(self, tipoDieta):
+        dietasDispo = ["carnivoro", "herbivoro", "omnivoro"]
+
+        if tipoDieta in dietasDispo:
+            return True
         else:
-            pHabitat = Habitat(nombre, tMin, tMax)
-            self.habitats.append(pHabitat)
-            self.setZooVacio(True)
+            return False
 
-    def listaHabitatsDisponibles(self, temMax, temMin):
-        habitatsAnimal = []
-        for habitat in self.habitats:
-            if habitat.getTempMax() <= temMax and habitat.getTempMin() >= temMin:
-                habitatsAnimal.append(habitat.getNombre())
-        return habitatsAnimal
+    def buscar_animal_id(self, id):
+        for clave, animal in self.registroAn.items():
+            if clave == id:
+                return animal
+            else:
+                return None
 
-    def devolverPunteroVec(self, nombre):
-        for habitatTemp in self.habitats:
-            if habitatTemp.getNombre() == nombre:
-                return habitatTemp
-        return None

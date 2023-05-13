@@ -4,7 +4,8 @@ import controller.zooController as zooController
 
 class zooView:
 
-    def menu_principalV(self, zoo):
+    def menu_principalV(self):
+        zoo = zooModel.Zoo()
         opcion = -1
 
         while opcion != 0:
@@ -19,7 +20,7 @@ class zooView:
             opcion = int(input("Escoge una opcion: "))
 
             controlador = zooController.zooController(zoo, self)
-            controlador.menu_principal(self, opcion, zoo)
+            controlador.menu_principal(opcion)
 
             if opcion == 0:
                 print("Adios!")
@@ -32,21 +33,22 @@ class zooView:
         tempMax = input("Temperatura maxima: ")
         tempMin = input("Temperatura minima: ")
 
-        habitat = habitatModel.(nombre, tempMax, tempMin)
+        habitat = habitatModel.Habitat(nombre, tempMax, tempMin)
 
     def crear_animal(self, zoo):
         listaDatos = []
         juguetes_temp = []
 
-        ##ingresa nombre
+        ##ingresa nombre [0]
         listaDatos.append(input("Ingrese el nombre del animal:"))
 
-        ##Ingresa especie
+        ##Ingresa especie [1]
         listaDatos.append(input("Ingrese la especie del animal:"))
 
-        ##Ingresa estado de salud
+        ##Ingresa estado de salud [2]
         listaDatos.append(input("Ingrese el estado de salud del animal:"))
 
+        ##Ingresa id [3]
         listaDatos.append(zoo.cantAnimales)
         zoo.cantAnimales += 1
 
@@ -58,23 +60,26 @@ class zooView:
                     raise ValueError("La edad debe ser un entero positivo menor o igual a 100")
                 break
             except ValueError:
-                print("Se ingresó un argumento inválido. Por favor ingrese un número entero.")
+                 print("Se ingresó un argumento inválido. Por favor ingrese un número entero.")
 
-            listaDatos.append(input(edad))
+        ##Ingresa edad [4]
+        listaDatos.append(input(edad))
 
-        tempMaxA = input("Ingrese la temperatura minima: ")
+        tempMaxA = int(input("Ingrese la temperatura maxima: "))
+        ##Ingresa temperatura maxima [5]
         listaDatos.append(input(tempMaxA))
 
         while True:
             try:
-                print("Ingrese la temperatura maxima del animal: ")
+                print("Ingrese la temperatura minima del animal: ")
                 tempMinA = int(input())
-                if tempMinA < tempMaxA:
+                if tempMinA > tempMaxA:
                     raise ValueError("La temperatura maxima es menor que la temperatura minima")
                 break
             except ValueError:
                 print("Se ingresó un argumento inválido. Por favor ingrese un numero menor a la temperatura maxima.")
 
+        ##Ingresa temperatura minima [6]
         listaDatos.append(tempMinA)
 
         while True:
@@ -87,7 +92,8 @@ class zooView:
             except ValueError:
                 print("Se ingresó un argumento inválido. Por favor ingrese un número entero.")
 
-            listaDatos.append(cant_max_dormir)
+        ##Ingresa horas de suenio [7]
+        listaDatos.append(cant_max_dormir)
 
         while True:
             try:
@@ -118,47 +124,19 @@ class zooView:
 
         listaDatos.append(alimentacion)
 
-
-        #nuevo_animal = Animal(nombre_temp, especie, estado_salud, id_animal_nuevo, temp_max_a, temp_min_a, 0,
-        #                      cant_max_dormir, False, False, edad, juguetes_temp, alimentacion)
-
-
-        # Agrega los alimentos que van por defecto
-        #nuevo_animal.elegir_alim(alimentacion)
-
         return listaDatos
 
-        self.animales[id_animal_nuevo] = nuevo_animal
-        print(f"{nuevo_animal.get_nombre()} fue llevado a su nueva hábitat {self.get_nombre()}")
+    def preguntar_id(self):
+        id = int(input("Ingrese el id del animal: "))
+        return id
+
+    ############ Menu editar info animal ############
+
+    def editar_info_animal(self, animal):
 
 
-#############
+    #def mostrar_mensaje_exitoso(self, mensaje):
+    #    st.success(mensaje)
 
-    def crear_animal(self, zoo):
-        tempMaxA = input("Temperatura maxima: ")
-        tempMinA = input("Temperatura mia: ")
-
-        if zoo.existeHabitatTemp():
-
-            listaHabitatsDisp = listaHabitatsDisponibles(tempMaxA, tempMinA)
-            print("Habitats disponibles para el animal")
-            for elemento in listaHabitatsDisp:
-                print(elemento)
-            habitat = input("Seleccione un habitat: ")
-            print()
-
-
-    nombre = input("Nombre: ")
-    especie = input("Especie: ")
-    estadoDeSalud = input("Estado de Salud: ")
-    especie = input("Especie: ")
-
-    else:
-
-#######################
-
-    def mostrar_mensaje_exitoso(self, mensaje):
-        st.success(mensaje)
-
-    def mostrar_mensaje_error(self, mensaje):
-        st.error(mensaje)
+    #def mostrar_mensaje_error(self, mensaje):
+    #    st.error(mensaje)
